@@ -19,7 +19,8 @@ class ListWorkoutScreen extends StatelessWidget {
             return const Center(child: Text('No workouts added yet.'));
           }
 
-          final workouts = box.values.toList();
+          final workouts = box.values.toList()
+            ..sort((a, b) => int.parse(a.id).compareTo(int.parse(b.id)));
 
           return ListView.builder(
             itemCount: workouts.length,
@@ -31,7 +32,20 @@ class ListWorkoutScreen extends StatelessWidget {
 
                 child: ListTile(
                   title: Text(workout.name),
-                  subtitle: Text(workout.description),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(workout.description),
+                      SizedBox(height: 5,),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                          child: Text(workout.dayName)),
+                    ],
+                  ),
                     trailing: IconButton(
                       icon: const Icon(Icons.delete, color: Colors.red),
                       onPressed: () async {

@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text('Workout Manager'),
+        title: const Text('Home Screen'),
         centerTitle: true,
         backgroundColor: Colors.deepPurpleAccent,
         elevation: 4,

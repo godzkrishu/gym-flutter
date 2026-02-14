@@ -18,7 +18,8 @@ class _CreateWorkoutScreenState extends State<CreateWorkoutScreen> {
   final _descriptionController = TextEditingController();
   final _gifImgController = TextEditingController();
   final _dayNameController = TextEditingController();
-  String selectedCategory = 'Chest';
+  List<String> selectedCategory = [];
+  List<String> selectedDay = [];
 
   void _saveWorkout() async {
     if (_formKey.currentState!.validate()) {
